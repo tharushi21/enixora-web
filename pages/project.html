@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | ENIXORA</title>
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="/images/logo.jpeg" class="nav-logo" alt="ENIXORA">
+    </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/pages/index.html">Home</a></li>
+            <li><a href="/pages/about.html" class="active">About</a></li> 
+            <li><a href="/pages/service.html">Services</a></li>
+            <li><a href="/pages/project.html">Projects</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+<section class="project-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-caption">
+        <h1 class="gold-text">Our <span class="white-text">Projects</span></h1>
+        <p>Innovation and Excellence in Every Line of Code.</p>
+    </div>
+</section>
+
+<section class="project-stats container" data-animate="fade-up">
+    <div class="stat-item">
+        <h2 class="gold-text">10+</h2>
+        <p>Projects Launched</p>
+    </div>
+    <div class="stat-item">
+        <h2 class="gold-text">05+</h2>
+        <p>Happy Clients</p>
+    </div>
+    <div class="stat-item">
+        <h2 class="gold-text">100%</h2>
+        <p>Success Rate</p>
+    </div>
+</section>
+
+
+<section class="detailed-projects container">
+    <h2 class="section-title gold-text">Featured <span class="white-text">Case Studies</span></h2>
+
+    <div class="project-item" data-animate="fade-up">
+        <div class="project-media">
+            <img src="/images/possystem.jpg" alt="POS System">
+        </div>
+        <div class="project-content">
+            <span class="project-category">Enterprise Solution</span>
+            <h3>Modern POS System</h3>
+            <p class="project-desc">
+                A robust Point of Sale system designed to streamline retail operations. It handles real-time inventory management and provides detailed sales analytics.
+            </p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Real-time Inventory Tracking</li>
+                <li><i class="fas fa-check-circle"></i> Automated Invoice Generation</li>
+                <li><i class="fas fa-check-circle"></i> Daily/Monthly Sales Reports</li>
+            </ul>
+            <div class="tech-stack">
+                <span>Spring Boot</span>
+                <span>MySQL</span>
+                <span>jQuery AJAX</span>
+            </div>
+            <div class="project-btns">
+                <a href="#" class="view-btn">GitHub Source</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-item alt" data-animate="fade-up">
+        <div class="project-media">
+            <img src="/images/e commerce.jpg" alt="E-Commerce Store">
+        </div>
+        <div class="project-content">
+            <span class="project-category">Web Application</span>
+            <h3>E-Commerce Platform</h3>
+            <p class="project-desc">
+                A fully functional online store featuring a dynamic product catalog, secure shopping cart, and a seamless checkout experience for customers.
+            </p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Secure Payment Gateway Integration</li>
+                <li><i class="fas fa-check-circle"></i> Responsive Admin Dashboard</li>
+                <li><i class="fas fa-check-circle"></i> Advanced Search & Filtering</li>
+            </ul>
+            <div class="tech-stack">
+                <span>React.js</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+            </div>
+            <div class="project-btns">
+                <a href="#" class="view-btn">Live Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-item" data-animate="fade-up">
+        <div class="project-media">
+            <img src="/images/movie ticket.png" alt="Movie Ticket System">
+        </div>
+        <div class="project-content">
+            <span class="project-category">Enterprise Solution</span>
+            <h3>Movie Ticket Booking System</h3>
+            <p class="project-desc">
+                A secure booking engine with tiered user access. It features interactive seat selection and a centralized management system for theater admins.
+            </p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> JWT & OAuth 2.0 Authentication</li>
+                <li><i class="fas fa-check-circle"></i> Dynamic Seat Allocation</li>
+                <li><i class="fas fa-check-circle"></i> Automated Email Confirmations</li>
+            </ul>
+            <div class="tech-stack">
+                <span>Spring Boot</span>
+                <span>JWT Security</span>
+                <span>PostgreSQL</span>
+            </div>
+            <div class="project-btns">
+                <a href="#" class="view-btn">Case Study</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="testimonial-section container">
+    
+    <div class="testimonial-card">
+        <div class="quote-wrapper">
+            <i class="fas fa-quote-left quote-icon"></i>
+        </div>
+        
+        <p class="testimonial-text">
+            "ENIXORA provided us with a high-quality solution that transformed our workflow. Professional, fast, and highly skilled team."
+        </p>
+
+        <div class="client-meta">
+            <div class="client-img">
+                <img src="https://ui-avatars.com/api/?name=Mr+Savinda&background=d4af37&color=000" alt="Mr. Savinda">
+            </div>
+            <div class="client-info">
+                <h4>Mr. Savinda</h4>
+                <span>Project Manager</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section container">
+    <div class="cta-box">
+        <h2>Have a vision for your next project?</h2>
+        <p>Let's collaborate to build something extraordinary together.</p>
+        <a href="/pages/contact.html" class="cta-btn">Let's Talk</a>
+    </div>
+</section>
+
+<footer class="main-footer" id="contact">
+
+    <div class="footer-grid">
+
+        <!-- COLUMN 1 -->
+        <div class="footer-col about-col">
+
+            <div class="footer-logo">
+                <img src="/images/logo.jpeg" alt="ENIXORA">
+                <span class="logo-text">ENIXORA</span>
+            </div>
+
+            <p class="about-desc">
+                We build websites, web apps, and software for businesses — with modern design, speed, and long-term support.
+            </p>
+
+            <div class="social-icons">
+                <a href="#https://www.facebook.com/share/1KfGqTX2EG/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+
+            <ul class="footer-links">
+                <li><a href="/pages/index.html">Home</a></li>
+                <li><a href="/pages/service.html">Services</a></li>
+                <li><a href="/pages/project.html">Projects</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div class="footer-col">
+            <h3>Contact Info</h3>
+
+            <ul class="contact-details">
+
+                <li>
+                    <i class="fas fa-envelope red-icon"></i>
+                    <a href="mailto:Enixora1@gmail.com">Enixora1@gmail.com</a>
+                </li>
+
+                <li>
+                    <i class="fas fa-phone red-icon"></i>
+                    <a href="tel:+94767798459">+94 76 779 8459</a>
+                </li>
+                <li>
+                    <i class="fab fa-facebook-f"></i>
+                    <a href="https://www.facebook.com/share/1KfGqTX2EG/?mibextid=wwXIfr">Facebook</a>
+                </li>
+
+                <li>
+                    <i class="fab fa-whatsapp red-icon"></i>
+                    <a href="https://wa.me/94767798459">WhatsApp Chat</a>
+                </li>
+
+                <li>
+                    <i class="fas fa-map-marker-alt red-icon"></i>
+                    <span>Galle, Sri Lanka</span>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+</footer>
+  <script src="/js/script.js"></script></body>
+</html>

@@ -1,0 +1,533 @@
+ :root {
+            --gold: #dbc64b;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --light-text: #e6e6e6;
+            --gray-text: #bfbfbf;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--light-text); overflow-x: hidden; }
+
+        /* --- NAVBAR (As provided by you) --- */
+       .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8%;
+    background: rgba(0, 0, 0, 0.95); /* පොඩ්ඩක් තද කළු පාටක් */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.nav-logo { height: 50px; }
+
+.logo-text {
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.nav-links { list-style: none; display: flex; gap: 25px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white); /* මෙතනට 'var(--white)' හෝ '#ffffff' දෙන්න */
+    font-size: 1rem;
+    gap: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links .active { color: var(--gold) !important;}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 28px;
+    background: var(--gold);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0; /* මැද ඉර අයින් කරනවා */
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 850px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background: rgba(15, 15, 15, 0.98);
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px;
+        padding-left: 30px;
+        gap: 25px;
+        transition: 0.4s ease;
+        border-left: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-links.active { right: 0 !important;}
+    .hamburger { display: flex; }
+    .nav-links li a {
+        font-size: 1.2rem;
+        color: var(--gold);
+    }
+}
+
+        /* --- 1. HERO SECTION --- */
+        .service-hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding-top: 80px;
+        }
+        .service-hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; }
+        .service-hero p { max-width: 700px; font-size: 1.2rem; color: var(--gray-text); }
+
+        /* --- 2. STATS CARD SECTION --- */
+        .stats-section { padding: 50px 8%; margin-top: -60px; }
+        .stats-container {
+            background: var(--card-bg);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .stat-item h2 { color: var(--gold); font-size: 2.5rem; margin-bottom: 5px; }
+        .stat-item p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-text); }
+
+        /* --- 3. DIGITAL SOLUTIONS (SERVICES) --- */
+       /* --- SECTION TITLE --- */
+.section-title {
+    text-align: center;
+    margin: 100px 0 60px;
+}
+
+.section-title span {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+/* --- GRID SYSTEM --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 8% 100px;
+}
+
+/* --- PREMIUM SERVICE CARD --- */
+.service-card {
+    background: rgba(255, 255, 255, 0.03); /* Glass effect background */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    padding: 50px 40px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+/* Background number effect */
+.card-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(255, 215, 0, 0.04); /* Very subtle gold number */
+    transition: 0.5s;
+}
+
+.service-card i {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+
+.service-card p {
+    color: #999;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: 0.4s;
+}
+
+/* --- HOVER EFFECTS --- */
+.service-card:hover {
+    background: rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 215, 0, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                inset 0 0 20px rgba(255, 215, 0, 0.05);
+}
+
+.service-card:hover i {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.service-card:hover .card-number {
+    color: rgba(255, 215, 0, 0.08);
+    transform: translateY(20px);
+}
+
+.service-card:hover p {
+    color: #eee;
+}
+
+.service-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsive adjust */
+@media (max-width: 768px) {
+    .section-title h2 { font-size: 2rem; }
+    .grid-container { padding: 0 5% 60px; }
+}
+
+        /* --- 4. PRICING PACKAGES --- */
+        .pricing-section { background: #151515; padding: 80px 8%; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .price-card {
+            background: var(--dark-bg); padding: 40px; border-radius: 15px;
+            text-align: center; border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: 0.3s;
+        }
+        .price-card.featured { border: 2px solid var(--gold); transform: scale(1.05); }
+        .price-card h4 { font-size: 1.2rem; margin-bottom: 10px; }
+        .price-card .cost { font-size: 2.5rem; color: var(--gold); font-weight: bold; margin-bottom: 20px; }
+        .price-card ul { list-style: none; margin-bottom: 30px; color: var(--gray-text); line-height: 2; }
+        .price-btn {
+            display: inline-block; padding: 12px 30px; background: var(--gold);
+            color: #000; text-decoration: none; font-weight: bold; border-radius: 5px;
+        }
+
+        /* --- 5. WORK PROCESS --- */
+       .process-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #111;
+}
+
+.process-section .section-title h2 {
+    font-size: 2.8rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.process-section .section-title h2::after {
+    content: "";
+    width: 60%;
+    height: 4px;
+    background: var(--gold);
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--gold);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.step {
+    background: #1a1a1a;
+    padding: 35px 25px;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+    transition: 0.35s ease;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    position: relative;
+}
+
+/* Hover Card Glow */
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 45px rgba(255, 215, 0, 0.35);
+    border-color: var(--gold);
+}
+
+/* Gold Circle Number */
+.step-num {
+    width: 65px;
+    height: 65px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    transition: 0.3s ease;
+}
+
+/* Hover Number Pop */
+.step:hover .step-num {
+    transform: scale(1.15);
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.step p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+/* GOLD ICON CIRCLE */
+.step-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.5);
+    transition: 0.3s ease;
+}
+
+/* On hover icon pop */
+.step:hover .step-icon {
+    transform: scale(1.15);
+    box-shadow: 0 0 40px rgba(255,215,0,0.9);
+}
+
+/* SMALL NUMBER BADGE */
+.step-badge {
+    background: #222;
+    padding: 6px 14px;
+    border-radius: 50px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+    width: fit-content;
+    margin: 0 auto 12px;
+    border: 1px solid rgba(255,215,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* --- FOOTER (As provided by you) --- */
+        .main-footer {
+    background: #0a0a0a;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+}
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 90%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffd700, #ffb200);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.about-desc {
+    color: var(--light-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: #dedede;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover { color: var(--gold); padding-left: 5px; }
+
+.contact-details { list-style: none; }
+.contact-details li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: var(--light-text);
+}
+.contact-details i { color: var(--gold); }
+.contact-details a { color: #fff; text-decoration: none; }
+
+.back-to-top {
+    position: absolute;
+    bottom: 30px;
+    right: 5%;
+    width: 45px; height: 45px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.back-to-top:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--gold); }
+
+/* ===============================
+   RESPONSIVE
+================================*/
+@media (max-width: 992px) {
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-logo, .social-icons, .contact-details li { justify-content: center; }
+    .hero-caption h1 { font-size: 2.5rem; }
+    .project-stats { flex-direction: column; gap: 30px; padding: 40px 0; }
+}

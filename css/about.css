@@ -1,0 +1,654 @@
+:root {
+    --bg-black: #121212;
+    --card-black: #1e1e1e;
+    --gold: #d4af37;
+    --white: #ffffff;
+    --light-text: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--bg-black);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Navbar Fix */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8%;
+    background: rgba(0, 0, 0, 0.95); /* පොඩ්ඩක් තද කළු පාටක් */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.nav-logo { height: 50px; }
+
+.logo-text {
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.nav-links { list-style: none; display: flex; gap: 25px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white); /* මෙතනට 'var(--white)' හෝ '#ffffff' දෙන්න */
+    font-size: 1rem;
+    gap: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links .active { color: var(--gold) !important;}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 28px;
+    background: var(--gold);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0; /* මැද ඉර අයින් කරනවා */
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 850px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 250px;
+        background: rgba(15, 15, 15, 0.98);
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px;
+        padding-left: 30px;
+        gap: 25px;
+        transition: 0.4s ease;
+        border-left: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-links.active { right: 0 !important;}
+    .hamburger { display: flex; }
+    .nav-links li a {
+        font-size: 1.2rem;
+        color: var(--gold);
+    }
+}
+
+/* About Hero Section */
+.about-hero {
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0; /* Full screen look */
+}
+
+/* HTML එකේ තියෙන image එකට අදාළ style එක */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.about-hero .hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65); /* අකුරු පේන්න ටිකක් අඳුරු කළා */
+    z-index: -1;
+}
+
+.hero-caption {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.hero-caption h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.gold-text { color: var(--gold); }
+
+.hero-caption p {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    padding: 14px 35px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 20px var(--gold);
+}
+
+/* Content Grid */
+.about-content { padding: 100px 8%; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: var(--card-black);
+    padding: 50px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+/* --- About Main Section Styles --- */
+.about-main {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+/* Our Story Styles */
+.our-story-container {
+    max-width: 800px;
+    margin: 0 auto 80px auto; /* Card වලට උඩින් ඉඩ තැබීමට */
+}
+
+.our-story-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.our-story-container p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--light-text);
+    opacity: 0.9;
+}
+
+/* Grid & Cards (කලින් තිබුණ ඒවායේ පොඩි වෙනස්කම් සමඟ) */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.about-card {
+    background: var(--card-black);
+    padding: 50px 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: 0.4s ease;
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+}
+
+/* ============================
+   FOCUS SECTION (PREMIUM GOLD)
+============================ */
+/* --- Focus Section Unique Design --- */
+
+.our-focus {
+    padding: 100px 8%;
+    background: #0a0a0a; /* තද කළු පැහැය */
+}
+
+.our-focus .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.our-focus .section-header h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.focus-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02); /* ඉතා සැහැල්ලු Glass effect එකක් */
+    padding: 60px 40px;
+    border-radius: 2px; /* Sharp edges for a professional look */
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Number Style - මේක background එකේ ලොකුවට පේන්න හදමු */
+.focus-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(212, 175, 55, 0.05); /* ඉතාම ලා රත්තරන් පැහැය */
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    transition: 0.5s;
+}
+
+.focus-item h3 {
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.focus-item p {
+    font-size: 1.05rem;
+    color: var(--light-text);
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+/* Hover Effects */
+.focus-item:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-color: var(--gold);
+    transform: translateY(-10px);
+}
+
+.focus-item:hover .focus-number {
+    color: rgba(212, 175, 55, 0.2);
+    transform: scale(1.2);
+}
+
+/* Card එක පල්ලෙහායින් එන ලස්සන Line එක */
+.focus-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    transition: 0.5s;
+}
+
+.focus-item:hover::after {
+    width: 100%;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .focus-item {
+        padding: 40px 30px;
+    }
+}
+/* --- Why Choose Us Layout --- */
+.choose-wrapper {
+    display: flex; /* මේක තමයි වැදගත්ම දේ */
+    align-items: center; /* මැදට align වෙන්න */
+    gap: 40px; /* දෙක අතර ඉඩ */
+    margin-top: 50px;
+}
+
+/* Image එකේ උස සහ පළල */
+.choose-image {
+    flex: 1; /* සමානව ඉඩ බෙදාගන්න */
+}
+
+.choose-image img {
+    width: 95%;
+    height: 300px; /* ඔයාට ඕන උසක් දෙන්න */
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* විස්තර ටික තියෙන දකුණු පැත්ත */
+.choose-grid {
+    flex: 1.2; /* විස්තර වලට පොඩ්ඩක් වැඩි ඉඩක් දුන්නා */
+    display: flex;
+    flex-direction: column; /* එක යට එක එන්න */
+    gap: 20px;
+}
+
+.choose-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--gold);
+    transition: 0.3s;
+}
+
+.choose-item:hover {
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateX(10px);
+}
+
+.choose-icon i {
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+.choose-text h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.choose-text p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+.why-choose-us .section-header {
+    text-align: center; /* මේකෙන් text එක මැදට එනවා */
+    width: 100%;       /* මුළු පළලම ගන්න */
+    margin-bottom: 50px; /* පල්ලෙහා content එකයි topic එකයි අතර ඉඩ තියන්න */
+}
+
+.why-choose-us .section-header h2 {
+    display: block;    /* Heading එක block එකක් විදිහට තියන්න */
+    font-size: 2.8rem; /* ඔයාට අවශ්‍ය ප්‍රමාණයට වෙනස් කරන්න */
+    text-transform: uppercase;
+}
+
+/* Mobile වලදී එක යට එක එන්න මේක ඕනේ */
+@media (max-width: 992px) {
+    .choose-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* --- Our Process Styles --- */
+.our-process {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.step {
+    position: relative;
+    padding: 20px;
+}
+
+.step-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(212, 175, 55, 0.1);
+    margin-bottom: -25px;
+}
+
+.step h4 {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+/* --- CTA Section Styles --- */
+.cta-section {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/images/cta-bg.webp') center/cover;
+    padding: 100px 8%;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    transform: translateY(-5px);
+}
+/* ===================== */
+/*  PREMIUM GOLD FOOTER  */
+/* ===================== */
+
+.main-footer {
+    background: #0a0a0a;
+    padding: 80px 0 40px;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+}
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 90%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffd700, #ffb200);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.about-desc {
+    color: var(--light-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: #dedede;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover { color: var(--gold); padding-left: 5px; }
+
+.contact-details { list-style: none; }
+.contact-details li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: var(--light-text);
+}
+.contact-details i { color: var(--gold); }
+.contact-details a { color: #fff; text-decoration: none; }
+
+.back-to-top {
+    position: absolute;
+    bottom: 30px;
+    right: 5%;
+    width: 45px; height: 45px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.back-to-top:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--gold); }
+
+/* ===============================
+   RESPONSIVE
+================================*/
+@media (max-width: 992px) {
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-logo, .social-icons, .contact-details li { justify-content: center; }
+    .hero-caption h1 { font-size: 2.5rem; }
+    .project-stats { flex-direction: column; gap: 30px; padding: 40px 0; }
+}
